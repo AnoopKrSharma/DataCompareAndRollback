@@ -1,0 +1,14 @@
+c:\users\anoop kumar sharma\source\repos\DataCompareAndRollback\DataCompareAndRollback\bin\Debug\DataCompareAndRollback.exe.config
+c:\users\anoop kumar sharma\source\repos\DataCompareAndRollback\DataCompareAndRollback\bin\Debug\DataCompareAndRollback.exe
+c:\users\anoop kumar sharma\source\repos\DataCompareAndRollback\DataCompareAndRollback\bin\Debug\DataCompareAndRollback.pdb
+c:\users\anoop kumar sharma\source\repos\DataCompareAndRollback\DataCompareAndRollback\obj\Debug\DataCompareAndRollback.csprojResolveAssemblyReference.cache
+c:\users\anoop kumar sharma\source\repos\DataCompareAndRollback\DataCompareAndRollback\obj\Debug\DataCompareAndRollback.DBConnect.resources
+c:\users\anoop kumar sharma\source\repos\DataCompareAndRollback\DataCompareAndRollback\obj\Debug\DataCompareAndRollback.Properties.Resources.resources
+c:\users\anoop kumar sharma\source\repos\DataCompareAndRollback\DataCompareAndRollback\obj\Debug\DataCompareAndRollback.csproj.GenerateResource.cache
+c:\users\anoop kumar sharma\source\repos\DataCompareAndRollback\DataCompareAndRollback\obj\Debug\DataCompareAndRollback.csproj.CoreCompileInputs.cache
+c:\users\anoop kumar sharma\source\repos\DataCompareAndRollback\DataCompareAndRollback\obj\Debug\DataCompareAndRollback.exe
+c:\users\anoop kumar sharma\source\repos\DataCompareAndRollback\DataCompareAndRollback\obj\Debug\DataCompareAndRollback.pdb
+C:\Users\Anoop Kumar Sharma\source\repos\DataCompareAndRollback\DataCompareAndRollback\obj\Debug\DataCompareAndRollback.DBCompareMain.resources
+C:\Users\Anoop Kumar Sharma\source\repos\DataCompareAndRollback\DataCompareAndRollback\bin\Debug\PoorMansTSqlFormatterLib35.dll
+C:\Users\Anoop Kumar Sharma\source\repos\DataCompareAndRollback\DataCompareAndRollback\obj\Debug\DataCompareAndRollback.csproj.CopyComplete
+C:\Users\Anoop Kumar Sharma\source\repos\DataCompareAndRollback\DataCompareAndRollback\obj\Debug\DataCompareAndRollback.AboutBox.resources

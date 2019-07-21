@@ -1,0 +1,2 @@
+# SQL DB Update and Rollback Script Generator
+This application is created to fulfill a personal requirement. Use of this application is to connect two database and generate individual scripts for the DB Objects i.e. Procedure and Function with the proper formatting (Used Poor Man SQL Formatter NuGet Package for formatting) so that scripts can be compare with tools like Notepad++ Compare, WinMerge, Beyond Compare etc.

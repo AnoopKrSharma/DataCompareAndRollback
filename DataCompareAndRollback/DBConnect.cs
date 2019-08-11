@@ -233,6 +233,7 @@ namespace DataCompareAndRollback
                 Connection.Connection2 = ObjValidateFields.CreateConnectionString(txtServer2.Text, Convert.ToString(ddlAuth2.Text), txtUserName2.Text, txtPassword2.Text, 2, Convert.ToString(ddlDBName2.Text));
                 if (ObjBusinessLogic.CheckConnection(Connection.Connection2))
                 {
+                    Connection.Connection2_DBName = String.Format("use [{0}]\n GO \n ", Convert.ToString(ddlDBName2.Text));
                     MessageBox.Show("Tested Connection Successfully!");
                     DisableControl(2);
                 }

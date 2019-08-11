@@ -25,7 +25,8 @@ namespace DataCompareAndRollback
             ClearNotFoundDatatable();
         }
 
-        public void ClearNotFoundDatatable() {
+        public void ClearNotFoundDatatable()
+        {
             //dtNotFoundObject = new DataTable();
             //dtNotFoundObject.Columns.Add("Objects_Not_Found", typeof(string));
             //dgvNotFound.DataSource = dtNotFoundObject;
@@ -72,11 +73,13 @@ namespace DataCompareAndRollback
                         {
                             counter++;
                             string ObjectType = CheckProcedureFunction(UpdatedProcedure);
+                            UpdatedProcedure = Connection.Connection2_DBName + UpdatedProcedure;
+                            RollBackProcedure = Connection.Connection2_DBName + RollBackProcedure;
                             //Change Create Procedure to Alter Procedure
                             RollBackProcedure = Regex.Replace(RollBackProcedure, "Create Procedure", "Alter Procedure", RegexOptions.IgnoreCase);
                             RollBackProcedure = Regex.Replace(RollBackProcedure, "Create Proc", "Alter Procedure", RegexOptions.IgnoreCase);
-                            RollBackProcedure = Regex.Replace(RollBackProcedure, "Create Func", "Alter Function", RegexOptions.IgnoreCase);
                             RollBackProcedure = Regex.Replace(RollBackProcedure, "Create Function", "Alter Function", RegexOptions.IgnoreCase);
+                            RollBackProcedure = Regex.Replace(RollBackProcedure, "Create Func", "Alter Function", RegexOptions.IgnoreCase);
                             UpdatedProcedure = Regex.Replace(UpdatedProcedure, "Create Procedure", "Alter Procedure", RegexOptions.IgnoreCase);
                             UpdatedProcedure = Regex.Replace(UpdatedProcedure, "Create Proc", "Alter Procedure", RegexOptions.IgnoreCase);
                             UpdatedProcedure = Regex.Replace(UpdatedProcedure, "Create Function", "Alter Function", RegexOptions.IgnoreCase);
@@ -90,7 +93,7 @@ namespace DataCompareAndRollback
                             if (ObjectType == "Procedure")
                             {
                                 counterProc++;
-                                dr["ObjectTypeCount"] = dt.Select("ObjectType='Procedure' and DDLObject='Alter'").Count()+1;
+                                dr["ObjectTypeCount"] = dt.Select("ObjectType='Procedure' and DDLObject='Alter'").Count() + 1;
                             }
                             else if (ObjectType == "Function")
                             {
@@ -106,6 +109,7 @@ namespace DataCompareAndRollback
                         {
                             counter++;
                             string ObjectType = CheckProcedureFunction(UpdatedProcedure);
+                            UpdatedProcedure = Connection.Connection2_DBName + UpdatedProcedure;
                             DataRow dr = dt.Rows.Add();
                             dr["Count"] = counter;
                             dr["ObjectType"] = ObjectType;
@@ -121,6 +125,7 @@ namespace DataCompareAndRollback
                             }
                             dr["DDLObject"] = "Create";
                             dr["ProcedureName"] = txtProcedure.Lines[i];
+                            UpdatedProcedure = PoorMansTSqlFormatterLib.SqlFormattingManager.DefaultFormat(UpdatedProcedure);
                             dr["UpdatedObject"] = UpdatedProcedure;
                             dr["RollbackObject"] = "";
                         }
@@ -167,7 +172,7 @@ namespace DataCompareAndRollback
                             {
                                 Directory.CreateDirectory(FolderPathRollback);
                             }
-                            string FilePathRollback = FolderPathRollback + "/" + Convert.ToString(dt.Rows[i]["ObjectTypeCount"])+"_" + Convert.ToString(dt.Rows[i]["DDLObject"]) +"_"+ Convert.ToString(dt.Rows[i]["ObjectType"]) +"_[dbo]."+ Convert.ToString(dt.Rows[i]["ProcedureName"]) + ".sql";
+                            string FilePathRollback = FolderPathRollback + "/" + Convert.ToString(dt.Rows[i]["ObjectTypeCount"]) + "_" + Convert.ToString(dt.Rows[i]["DDLObject"]) + "_" + Convert.ToString(dt.Rows[i]["ObjectType"]) + "_[dbo]." + Convert.ToString(dt.Rows[i]["ProcedureName"]) + ".sql";
                             if (!File.Exists(FilePathRollback))
                             {
                                 using (var tw = new StreamWriter(FilePathRollback, true))
@@ -178,7 +183,7 @@ namespace DataCompareAndRollback
                         }
                         if (!String.IsNullOrEmpty(Convert.ToString(dt.Rows[i]["UpdatedObject"])))
                         {
-                            string FolderPathUpdate = lblLocation.Text + "/"+ Convert.ToString(dt.Rows[i]["DDLObject"]) + "_" + Convert.ToString(dt.Rows[i]["ObjectType"]);
+                            string FolderPathUpdate = lblLocation.Text + "/" + Convert.ToString(dt.Rows[i]["DDLObject"]) + "_" + Convert.ToString(dt.Rows[i]["ObjectType"]);
                             if (!Directory.Exists(FolderPathUpdate))
                             {
                                 Directory.CreateDirectory(FolderPathUpdate);
@@ -209,7 +214,7 @@ namespace DataCompareAndRollback
 
         private void DBCompareMain_Load(object sender, EventArgs e)
         {
-            
+
         }
 
         private void DBCompareMain_FormClosing(object sender, FormClosingEventArgs e)

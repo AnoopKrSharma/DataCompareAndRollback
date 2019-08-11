@@ -59,5 +59,36 @@ namespace DataCompareAndRollback
             }
             return DT;
         }
+
+        public DataTable GetDataTableWithQuery(string Query, List<SqlParameter> LstSqlParameter)
+        {
+            DataTable DT = new DataTable();
+            try
+            {
+                SqlConnection Con = new SqlConnection(this._ConnectionString);
+                if (Con.State == ConnectionState.Closed)
+                {
+                    Con.Open();
+                }
+                SqlCommand Com = new SqlCommand();
+                Com.CommandType = CommandType.Text;
+                Com.CommandText = Query;
+                Com.Connection = Con;
+                if (LstSqlParameter != null)
+                {
+                    foreach (SqlParameter SQLPara in LstSqlParameter)
+                    {
+                        Com.Parameters.Add(SQLPara);
+                    }
+                }
+                SqlDataAdapter Adpat = new SqlDataAdapter(Com);
+                Adpat.Fill(DT);
+            }
+            catch (Exception Ex)
+            {
+
+            }
+            return DT;
+        }
     }
 }

@@ -20,6 +20,9 @@ namespace DataCompareAndRollback
         public DataTable GetDataTable(string ConnectionString) {
             ObjSQLDBAccess = new SQLDBAccess(ConnectionString);
             DataTable DT=ObjSQLDBAccess.GetDataTable("sp_databases", null);
+            if (DT==null) {
+                DT= ObjSQLDBAccess.GetDataTableWithQuery("Select name as Database_Name from sys.databases order by name", null);
+            }
             return DT;
         }
         public string GetProcedure(string ProcedureName,string ConnectionName) {

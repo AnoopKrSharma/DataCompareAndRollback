@@ -10,5 +10,7 @@ namespace DataCompareAndRollback
     {
         public static string Connection1;
         public static string Connection2;
+
+        public static string Connection2_DBName;
     }
 }
